@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  node_app:
+    container_name: frontend
+    image: node-app
+    build: 
+      context: docker-image
+    ports:
+      - "8080:3000"
+    networks:
+      - net
+
+networks:
+  net:
