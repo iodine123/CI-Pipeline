@@ -8,5 +8,5 @@ COPY . /app
 RUN npm run build
 
 #Run with nginx
-FROM nginx:1.17.1-alpine
+FROM nginx
 COPY --from=build-step /app/build /usr/share/nginx/html
