@@ -1,9 +1,12 @@
+#Build image
 FROM node:14-alpine
 
-USER root
+WORKDIR /app
+COPY package.json /app/
+RUN npm install
+COPY . /app
+RUN npm run build
 
-WORKDIR /src/ 
-COPY ./ /src/
-
-RUN npm install && \
-    npm start
+#Run with nginx
+FROM nginx:1.17.1-alpine
+COPY --from=build-step /app/build /usr/share/nginx/html
