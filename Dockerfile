@@ -1,5 +1,5 @@
 #Build image
-FROM node:14-alpine
+FROM node:latest
 
 WORKDIR /app
 COPY package.json /app/
