@@ -7,7 +7,7 @@ pipeline{
                     rm -rf CI-Pipeline
                     git clone https://github.com/iodine123/CI-Pipeline
                     cd CI-Pipeline
-                    docker-compose build
+                    docker build -t app1:v1 .
                     echo "Success"
                     '''
             }
